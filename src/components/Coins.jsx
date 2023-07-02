@@ -50,13 +50,15 @@ const Coins = () => {
         <Loader />
       ) : (
         <>
-          <RadioGroup defaultValue={currency} onChange={setCurrency} p={'8'}>
-            <HStack spacing={'4'}>
+        <HStack flex={'flex'}  justifyContent={'center'} w={'full'} m={'auto'}>
+          <RadioGroup defaultValue={currency}  onChange={setCurrency} p={'8'}>
+            <HStack spacing={'4'} m={'0 20'}>
               <Radio value={'inr'}>INR</Radio>
               <Radio value={'usd'}>USD</Radio>
               <Radio value={'eur'}>EUR</Radio>
             </HStack>
           </RadioGroup>
+          </HStack>
 
           <HStack wrap={'wrap'} justifyContent={'center'}>
             {coins.map(i => (
