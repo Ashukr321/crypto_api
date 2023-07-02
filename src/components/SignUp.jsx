@@ -1,11 +1,17 @@
 import { Avatar, Container } from '@chakra-ui/react';
-import React from 'react';
 import { Button, Heading, Input, Text, VStack } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
 const SignUp = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
-    <Container maxW={'container.xl'} h={'100vh'} p={'16'}>
+    <Container maxW={'container.xl'} h={'100vh'} p={'16'} data-aos="fade-right">
       <form>
         <VStack
           alignItems={'stretch'}

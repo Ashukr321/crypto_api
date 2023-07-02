@@ -23,6 +23,7 @@ import Error from './ErrorComponent';
 import axios from 'axios';
 
 const CoinDetail = () => {
+  
   const [coins, setCoins] = useState();
   const [currency, setCurrency] = useState('inr');
   const [loading, setLoading] = useState(true);
@@ -49,7 +50,7 @@ const CoinDetail = () => {
 
   if (error) return <Error message={'Error While Fetching CoinsDetails'} />;
   return (
-    <Container maxW={'container.xl'} p={['15', '20']}>
+    <Container maxW={'container.xl'} p={['15', '20']}  >
       {loading ? (
         <Loader />
       ) : (

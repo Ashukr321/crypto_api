@@ -6,8 +6,14 @@ import { Container, Radio, Button, HStack, RadioGroup } from '@chakra-ui/react';
 import Loader from './Loader';
 import ErrorComponent from './ErrorComponent';
 import CoinCard from './CoinCard';
-
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 const Coins = () => {
+
+  useEffect(()=>{
+    Aos.init();
+  },[]);
+
   const [coins, setCoins] = useState([]);
   const [currency, setCurrency] = useState('inr');
   const [loading, setLoading] = useState(true);
@@ -62,8 +68,9 @@ const Coins = () => {
 
           <HStack wrap={'wrap'} justifyContent={'center'}>
             {coins.map(i => (
-              <div>
+              <div data-aos="fade-right">
                 <CoinCard
+                  
                   id={i.id}
                   key={i.id}
                   name={i.name}

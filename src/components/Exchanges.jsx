@@ -5,8 +5,14 @@ import { server } from '../index';
 import { Container, HStack, Heading, Text, VStack } from '@chakra-ui/react';
 import Loader from './Loader';
 import ErrorComponent from './ErrorComponent';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 const Exchanges = () => {
+
+  useEffect(()=>{
+    Aos.init();
+  },[]);
   const [exchanges, setExchanges] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -36,7 +42,7 @@ const Exchanges = () => {
         <>
           <HStack wrap={'wrap'} justifyContent={'center'}>
             {exchanges.map(i => (
-              <div>
+              <div data-aos="fade-left">
                 <ExchangeCard
                   name={i.name}
                   image={i.image}
