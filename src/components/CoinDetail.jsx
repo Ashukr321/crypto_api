@@ -10,6 +10,9 @@ import {
   Stat,
   StatLabel,
   StatNumber,
+  StatHelpText,
+  StatArrow,
+  Badge,
 } from '@chakra-ui/react';
 import React from 'react';
 import { useState, useEffect } from 'react';
@@ -44,21 +47,20 @@ const CoinDetail = () => {
     fetchCoin();
   }, [params.id]);
 
-  if (error)
-    return <Error message={'Error While Fetching CoinsDetails'} />;
+  if (error) return <Error message={'Error While Fetching CoinsDetails'} />;
   return (
-    <Container maxW={'container.xl'} p={['15','20']}  >
+    <Container maxW={'container.xl'} p={['15', '20']}>
       {loading ? (
         <Loader />
       ) : (
         <>
-          <Box w={'full'} borderWidth={1} mt={['20','0']}>
-            efaefw
+          <Box w={'full'} borderWidth={1} mt={['16', '0']}>
+            this is techyAshutosh
           </Box>
 
           <HStack flex={'flex'} justifyContent={'center'} w={'full'} m={'auto'}>
             <RadioGroup defaultValue={currency} onChange={setCurrency} p={'8'}>
-              <HStack spacing={'4'} m={'0 20'}>
+              <HStack spacing={'4'}>
                 <Radio value={'inr'}>INR</Radio>
                 <Radio value={'usd'}>USD</Radio>
                 <Radio value={'eur'}>EUR</Radio>
@@ -67,11 +69,22 @@ const CoinDetail = () => {
           </HStack>
 
           <VStack spacing={'4'} p={'16'} alignItems={'flex-start'}>
-            <Text fontSize={'md'} color={'purple'} textAlign={'center'} alignSelf={'center'} opacity={'0.7'}>
+            <Text
+              fontSize={'md'}
+              color={'purple'}
+              textAlign={'center'}
+              alignSelf={'center'}
+              opacity={'0.7'}
+            >
               Last Updated on{' '}
               {Date(coins.market_data.last_updated).split('G')[0]}
             </Text>
-            <HStack w={'full'} flex={'flex'} flexDirection={'column'} justifyContent={'center'}> 
+            <HStack
+              w={'full'}
+              flex={'flex'}
+              flexDirection={'column'}
+              justifyContent={'center'}
+            >
               <Image
                 src={coins.image.large}
                 w={'25'}
@@ -79,17 +92,44 @@ const CoinDetail = () => {
                 objectFit={'contain'}
               ></Image>
               <VStack>
-              <Stat>
-              <StatLabel textAlign={'center'} color={'purple.500'} fontSize={'xl'} >{coins.name}</StatLabel>
-              <StatNumber textAlign={'center'} color={'blackAlpha'} fontSize={'3xl'}>
-                {currencySymbol}
-                {coins.market_data.current_price[currency]}
-              </StatNumber>
-            </Stat>
+                <Stat>
+                  <StatLabel
+                    textAlign={'center'}
+                    color={'purple.500'}
+                    fontSize={'xl'}
+                  >
+                    {coins.name}
+                  </StatLabel>
+                  <StatNumber
+                    textAlign={'center'}
+                    color={'blackAlpha'}
+                    fontSize={'3xl'}
+                  >
+                    {currencySymbol}
+                    {coins.market_data.current_price[currency]}
+                  </StatNumber>
+                  <StatHelpText textAlign={'center'} fontSize={'xl'}>
+                    <StatArrow
+                      type={
+                        coins.market_data.market_cap_change_percentage_24h > 0
+                          ? 'increase'
+                          : 'decrease'
+                      }
+                    />
+                    {coins.market_data.market_cap_change_percentage_24h} %
+                  </StatHelpText>
+                </Stat>
+                <Badge
+                
+                      fontSize={'2xl'}
+                      bgColor={'purple.500'}
+                      p={'2'}
+                      color={'white'}
+                      shadow={'base'}
+                
+                >{`#${coins.market_cap_rank}`}</Badge>
               </VStack>
             </HStack>
-
-            
           </VStack>
         </>
       )}
