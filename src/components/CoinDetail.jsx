@@ -47,7 +47,7 @@ const CoinDetail = () => {
   if (error)
     return <Error message={'Error While Fetching CoinsDetails'} />;
   return (
-    <Container maxW={'container.xl'} p={'20'}  >
+    <Container maxW={'container.xl'} p={['15','20']}  >
       {loading ? (
         <Loader />
       ) : (
@@ -80,8 +80,8 @@ const CoinDetail = () => {
               ></Image>
               <VStack>
               <Stat>
-              <StatLabel textAlign={'center'} color={'purple.500'} fontSize={'2xl'} >{coins.name}</StatLabel>
-              <StatNumber>
+              <StatLabel textAlign={'center'} color={'purple.500'} fontSize={'xl'} >{coins.name}</StatLabel>
+              <StatNumber textAlign={'center'} color={'blackAlpha'} fontSize={'3xl'}>
                 {currencySymbol}
                 {coins.market_data.current_price[currency]}
               </StatNumber>
