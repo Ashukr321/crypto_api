@@ -1,26 +1,87 @@
-import { Button, HStack } from '@chakra-ui/react';
+
+
+
 import React from 'react';
+import {
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Button,
+  useDisclosure,
+  VStack,
+  HStack,
+} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
-import '../contants/Colors.css';
-<contants />;
+import { BiMenuAltLeft } from 'react-icons/bi';
+
 const Header = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <HStack p={'4'} shadow={'base'} bgColor={'var(--dark)'}
-       flex={'row'}  justifyContent={'center'} >
-      <Button variant={'unstyled'} color={'white'} mx={'3'} >
-        <Link to={'/'} >Home</Link>
+    <>
+      <Button
+      zIndex={'overlay'}
+
+        pos={'fixed'}
+        top={4}
+        left={4}
+        colorScheme="purple"
+        padding={0}
+        w={10}
+        h={10}
+        borderRadius={'full'}
+        onClick={onOpen}
+      >
+        <BiMenuAltLeft size={'20'} />
       </Button>
 
-      <Button variant={'unstyled'} color={'white'} mx={'3'}>
-        <Link to={'/exchanges'}>Exchanges</Link>
-      </Button>
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>TeachyAshu</DrawerHeader>
+          <DrawerBody>
+            <VStack alignItems={'flex-start'}>
+              <Button onClick={onClose} variant={'ghost'} colorScheme="purple">
+                <Link to={'/'}>Home</Link>
+              </Button>
 
-      <Button variant={'unstyled'} color={'white'} mx={'3'}>
-        <Link to={'/coins'}>Coins</Link>
-      </Button>
+              <Button onClick={onClose} variant={'ghost'} colorScheme="purple">
+              <Link to={'/exchanges'}>Exchanges</Link>
+              </Button>
 
+  
+              <Button onClick={onClose} variant={'ghost'} colorScheme="purple">
+              <Link to={'/coins'}>Coins</Link>
+              </Button>
+          
+              
+            </VStack>
+            <HStack
+              pos={'absolute'}
+              bottom={'10'}
+              left={'0'}
+              w={'full'}
+              justifyContent={'space-evenly'}
+            >
+              <Button onClick={onClose} colorScheme="purple">
+                <Link to={'/login'}>Login</Link>
+              </Button>
 
-    </HStack>
+              <Button
+                onClick={onClose}
+                colorScheme="purple"
+                variant={'outline'}
+              >
+                <Link to={'/signup'}>Sign Up</Link>
+              </Button>
+            </HStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </>
   );
 };
 

@@ -6,8 +6,9 @@ import Home from './components/Home';
 import Coins from './components/Coins';
 import Exchanges from './components/Exchanges';
 import CoinDetail from './components/CoinDetail';
-
-// import './contants/Colors.scss';
+import Footer from './components/Footer';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
@@ -18,7 +19,10 @@ function App() {
         <Route path="/coins" element={<Coins />} />
         <Route path="/exchanges" element={<Exchanges />} />
         <Route path="/coin/:id" element={<CoinDetail />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }
