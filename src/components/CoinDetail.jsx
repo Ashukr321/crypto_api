@@ -52,7 +52,7 @@ const CoinDetail = () => {
         <Loader />
       ) : (
         <>
-          <Box w={'full'} borderWidth={1}>
+          <Box w={'full'} borderWidth={1} mt={['20','0']}>
             efaefw
           </Box>
 
