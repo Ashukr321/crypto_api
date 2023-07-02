@@ -12,7 +12,7 @@ import {
   import { AiOutlineSend, AiFillLinkedin, AiFillInstagram, AiFillGithub } from 'react-icons/ai';
   const Footer = () => {
     return (
-      <Box bgColor={'purple.600'} minH={'40'} p={'16'} color={'white'}>
+      <Box bgColor={'purple.600'} minH={'40'} p={'10'} color={'white'}>
         <Stack direction={['column', 'row']} textAlign={['center','left']}>
           <VStack w={'full'} alignItems={'stretch'} px={'4'}>
             <Heading colorScheme="purple" textTransform={'uppercase'}>
