@@ -29,7 +29,7 @@ const Login = () => {
           m={'auto'}
           my={'16'}
         >
-          <Heading textAlign={'center'}>Welcome Back</Heading>
+          <Heading textAlign={'center'}  color={'purple.500'}>Welcome Back</Heading>
           <Input
             placeholder={'Email'}
             type="email"
