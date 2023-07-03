@@ -27,9 +27,15 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "overrides": {
+    "@svgr/webpack": "$@svgr/webpack"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "plugins": [
+    ["@babel/plugin-proposal-private-property-in-object", { "loose": true }]
+],
   "browserslist": {
     "production": [
       ">0.2%",
