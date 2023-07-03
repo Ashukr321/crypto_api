@@ -41,7 +41,7 @@ const Header = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>TeachyAshu</DrawerHeader>
+          <DrawerHeader fontWeight={'800'} color={'blackAlpha.900'}>TeachyAshu</DrawerHeader>
           <DrawerBody>
             <VStack alignItems={'flex-start'}>
               <Button onClick={onClose} variant={'ghost'} colorScheme="purple">
@@ -52,11 +52,9 @@ const Header = () => {
               <Link to={'/exchanges'}>Exchanges</Link>
               </Button>
 
-  
               <Button onClick={onClose} variant={'ghost'} colorScheme="purple">
               <Link to={'/coins'}>Coins</Link>
               </Button>
-          
               
             </VStack>
             <HStack
